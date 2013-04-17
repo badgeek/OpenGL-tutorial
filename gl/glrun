@@ -1,0 +1,2 @@
+gcc -o gl gl.c  -framework Carbon -framework OpenGL -framework GLUT
+./gl

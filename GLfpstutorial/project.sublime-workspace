@@ -1,0 +1,557 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"GL_ARRAY_BU",
+				"GL_ARRAY_BUFFER_ARB	macro"
+			],
+			[
+				"GL_STATIC_DRAW",
+				"GL_STATIC_DRAW_ARB	macro"
+			],
+			[
+				"GL_TRIAN",
+				"GL_TRIANGLE_STRIP	macro"
+			],
+			[
+				"glenableclien",
+				"glEnableClientState(GLenum array)	void"
+			],
+			[
+				"glbindbuf",
+				"glBindBufferARB	macro"
+			],
+			[
+				"GL_VER",
+				"GL_VERTEX_ARRAY	macro"
+			],
+			[
+				"glEnabe",
+				"glEnableClientStateiEXT	macro"
+			],
+			[
+				"gldraw",
+				"glDrawBuffersARB	macro"
+			],
+			[
+				"glbuffer",
+				"glBufferDataARB(GLenum target, GLsizeiptrARB size, const GLvoid *data, GLenum usage)	void"
+			],
+			[
+				"glbindbu",
+				"glBindBufferARB(GLenum target, GLuint buffer)	void"
+			],
+			[
+				"glgenb",
+				"glGenBuffersARB(GLsizei n, GLuint *buffers)	void"
+			],
+			[
+				"glbind",
+				"glBindFramebuffer(GLenum, GLuint)	void"
+			],
+			[
+				"glbin",
+				"glBindRenderbuffer(GLenum, GLuint)	void"
+			],
+			[
+				"glew",
+				"glewInit()	GLenum"
+			],
+			[
+				"glClearColor",
+				"glClearColorIuiEXT(GLuint r, GLuint g, GLuint b, GLuint a)	void"
+			],
+			[
+				"GL_DEPTH_B",
+				"GL_DEPTH_BUFFER_BIT	macro"
+			],
+			[
+				"GL_COLO",
+				"GL_COLOR_CLEAR_VALUE	macro"
+			],
+			[
+				"GL_LI",
+				"GL_LINES	macro"
+			],
+			[
+				"glrot",
+				"glRotatef(GLfloat angle, GLfloat x, GLfloat y, GLfloat z)	void"
+			],
+			[
+				"GL_Q",
+				"GL_QUADS	macro"
+			],
+			[
+				"glcolor3f",
+				"glColor3f(GLfloat red, GLfloat green, GLfloat blue)	void"
+			],
+			[
+				"glvertex2f",
+				"glVertex2f(GLfloat x, GLfloat y)	void"
+			],
+			[
+				"GL_POI",
+				"GL_POINTS	macro"
+			],
+			[
+				"verte",
+				"vertex_buffer	GLfloat [4][3]"
+			],
+			[
+				"GL_STATI",
+				"GL_STATIC_DRAW	macro"
+			],
+			[
+				"GL_ARRA",
+				"GL_ARRAY_BUFFER_ARB	macro"
+			],
+			[
+				"glbufferdata",
+				"glBufferDataARB(GLenum target, GLsizeiptrARB size, const GLvoid *data, GLenum usage)	void"
+			],
+			[
+				"glbu",
+				"glBufferData(GLenum target, GLsizeiptr size, const GLvoid *data, GLenum usage)	void"
+			],
+			[
+				"GL_REND",
+				"GL_RENDERBUFFER	macro"
+			],
+			[
+				"glren",
+				"glRenderbufferStorage(GLenum, GLenum, GLsizei, GLsizei)	void"
+			],
+			[
+				"glpop",
+				"glPopMatrix()	void"
+			],
+			[
+				"glRotate",
+				"glRotatef(GLfloat angle, GLfloat x, GLfloat y, GLfloat z)	void"
+			],
+			[
+				"GLUT_LE",
+				"GLUT_LEFT_BUTTON	macro"
+			],
+			[
+				"glorth",
+				"glOrtho(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar)	void"
+			],
+			[
+				"GL_LIN",
+				"GL_LINEAR	macro"
+			],
+			[
+				"gltran",
+				"glTranslatef(GLfloat x, GLfloat y, GLfloat z)	void"
+			],
+			[
+				"myim",
+				"myimg2	Image *"
+			],
+			[
+				"GL_DST",
+				"GL_DST_COLOR	macro"
+			],
+			[
+				"GL_SRC_",
+				"GL_SRC_COLOR	macro"
+			],
+			[
+				"GL_BLEN",
+				"GL_BLEND	macro"
+			],
+			[
+				"GL_TEXT",
+				"GL_TEXTURE1	macro"
+			],
+			[
+				"gltext",
+				"glTexCoord2f(GLfloat s, GLfloat t)	void"
+			],
+			[
+				"checki",
+				"checkImage	GLubyte [64][64][4]"
+			],
+			[
+				"chec",
+				"checkImageHeight	macro"
+			],
+			[
+				"glTexIm",
+				"glTexImage2D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, const GLvoid *pixels)	void"
+			],
+			[
+				"GL_TEXTURE_WRAP",
+				"GL_TEXTURE_WRAP_S	macro"
+			],
+			[
+				"glTex",
+				"glTexParameterfv(GLenum target, GLenum pname, const GLfloat *params)	void"
+			],
+			[
+				"glpixel",
+				"glPixelStorei(GLenum pname, GLint param)	void"
+			],
+			[
+				"glclearcol",
+				"glClearColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha)	void"
+			],
+			[
+				"O_RD",
+				"O_RDWR	macro"
+			],
+			[
+				"tcget",
+				"tcgetattr(int, struct termios *)	int"
+			],
+			[
+				"open",
+				"open(const char *, int, ...)	int"
+			],
+			[
+				"sigac",
+				"sigaction(int, const struct sigaction *restrict, struct sigaction *restrict)	int"
+			],
+			[
+				"send",
+				"send(int, const void *, size_t, int)	ssize_t"
+			],
+			[
+				"addr",
+				"addr_hint	struct addrinfo"
+			],
+			[
+				"sock",
+				"sockfd	int"
+			],
+			[
+				"s",
+				"sa_flags	int"
+			],
+			[
+				"exi",
+				"exit_handler(int id)	void"
+			],
+			[
+				"sa_",
+				"sa_child	struct sigaction"
+			],
+			[
+				"SIGU",
+				"SIGUSR1	macro"
+			],
+			[
+				"sigis",
+				"sigismember(const sigset_t *, int)	int"
+			],
+			[
+				"sigi",
+				"sigismember(const sigset_t *, int)	int"
+			],
+			[
+				"sigset",
+				"sigset_t	typedef"
+			],
+			[
+				"getp",
+				"getppid()	pid_t"
+			],
+			[
+				"sigse",
+				"sigset_t	typedef"
+			],
+			[
+				"sigad",
+				"sigaddset(sigset_t *, int)	int"
+			],
+			[
+				"sa",
+				"sa_mask	sigset_t"
+			],
+			[
+				"SIGIN",
+				"SIGINT	macro"
+			],
+			[
+				"sigem",
+				"sigemptyset(sigset_t *)	int"
+			],
+			[
+				"siga",
+				"siga	struct sigaction"
+			],
+			[
+				"SA_RES",
+				"SA_RESTART	macro"
+			],
+			[
+				"free",
+				"freeaddrinfo(struct addrinfo *)	void"
+			],
+			[
+				"bind",
+				"bind(int, const struct sockaddr *, socklen_t)	int"
+			],
+			[
+				"add",
+				"addr_info	struct addrinfo *"
+			],
+			[
+				"memset",
+				"memset(void *, int, size_t)	void *"
+			],
+			[
+				"SOCK",
+				"SOCK_STREAM	macro"
+			],
+			[
+				"AF_UN",
+				"AF_UNSPEC	macro"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "main.cpp",
+			"settings":
+			{
+				"buffer_size": 3265,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "OpenGL",
+	"command_palette":
+	{
+		"height": 167.0,
+		"selected_items":
+		[
+			[
+				"run",
+				"Build: OpenGL: Run"
+			],
+			[
+				"open",
+				"Build: OpenGL: Clean"
+			],
+			[
+				"clean",
+				"Build: Clean"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"git ",
+				"Git: Gui"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/xcorex/Documents/Documents/Projects/C++/opengl/GLduriantutorial/Makefile",
+		"/Users/xcorex/Documents/Documents/Projects/C++/opengl/GLduriantutorial/main.cpp",
+		"/Users/xcorex/Documents/Documents/Projects/C++/opengl/GLduriantutorial/myutil.h",
+		"/Users/xcorex/Documents/Documents/Projects/C++/opengl/GLduriantutorial/myutil.cpp",
+		"/Users/xcorex/Documents/Documents/Projects/C++/opengl/GLduriantutorial/imageloader.cpp",
+		"/Users/xcorex/Documents/Documents/Projects/C++/opengl/GLduriantutorial/imageloader.h",
+		"/Users/xcorex/Documents/Documents/Projects/C++/opengl/GLduriantutorial/myutil.c",
+		"/Users/xcorex/Documents/Documents/Projects/C++/opengl/GLduriantutorial/project.sublime-project",
+		"/Users/xcorex/Documents/Documents/Projects/c++/opengl/GLvbo/main.cpp",
+		"/Users/xcorex/Documents/Documents/Projects/c++/opengl/GLframebuffer/main.cpp",
+		"/Users/xcorex/Downloads/cube/imageloader.h",
+		"/Users/xcorex/Downloads/cube/main.cpp",
+		"/Users/xcorex/Downloads/cube/Makefile",
+		"/Users/xcorex/Downloads/cube/imageloader.cpp",
+		"/System/Library/Frameworks/GLUT.framework/Headers/glut.h",
+		"/Users/xcorex/Documents/Documents/Projects/Arduino/xcodeardu/8bit-mixed-tape/firmware/main.c",
+		"/Users/xcorex/Documents/Documents/Projects/processing/gacoba/gacoba.pde",
+		"/Users/xcorex/Documents/Documents/Projects/Python/pyopengl/PyOpenGL-Demo-3.0.1b1/PyOpenGL-Demo/NeHe/lesson3.py",
+		"/Users/xcorex/Desktop/Arduino_Guitar_Pedal/Arduino_Guitar_Pedal.pde",
+		"/Users/xcorex/Downloads/huffcode.c",
+		"/Users/xcorex/Documents/Documents/Projects/Atmel/PlantWateringAlarm-master/src/main.c",
+		"/Users/xcorex/Documents/Documents/Projects/Arduino/xcodeardu/timer-tutorial-2-pwm/firmware/Makefile",
+		"/Users/xcorex/Desktop/lifepat.c",
+		"/Users/xcorex/Desktop/avr_serial/piie_crc.c",
+		"/Users/xcorex/Desktop/avr_serial/avr_serial.c",
+		"/Users/xcorex/Documents/Documents/Projects/C++/learn-linux-signal/isattty.c",
+		"/Users/xcorex/Documents/Documents/Projects/C++/learn-linux-signal/forksignal.c",
+		"/Users/xcorex/Downloads/arduino-serial.c",
+		"/Users/xcorex/Desktop/server.c",
+		"/Users/xcorex/Desktop/forksignal2.c",
+		"/Users/xcorex/Library/Application Support/Sublime Text 2/Packages/User/c.sublime-build",
+		"/Users/xcorex/Documents/Documents/Projects/C++/cparse/test1.c",
+		"/Users/xcorex/Desktop/testsignal.c"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"createVertexBuffer",
+			"vbotest",
+			"rotate",
+			"loadid",
+			"glOrtho",
+			"ortho",
+			"glenable",
+			"update",
+			"set_sleep_mode",
+			"BUTTON",
+			"j",
+			" ",
+			"crc",
+			"ctl",
+			"sigaction"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			" "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "main.cpp",
+					"settings":
+					{
+						"buffer_size": 3265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2069,
+								2069
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 504.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.clang":
+	{
+		"height": 159.0
+	},
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

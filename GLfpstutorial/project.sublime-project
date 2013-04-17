@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/xcorex/Documents/Documents/Projects/C++/opengl/GLduriantutorial"
+		}
+	],
+	  "build_systems":
+    [
+        {
+            "name": "OpenGL",
+            "cmd": ["make", "compilerun"]
+        }
+    ]
+}
