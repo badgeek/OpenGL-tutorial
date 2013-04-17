@@ -118,15 +118,15 @@ Matrix3x3& Matrix3x3::inverse()
     minor[7] = -getMinor(mat[0], mat[2],mat[3], mat[5]);
     minor[8] = getMinor(mat[0], mat[1],mat[3], mat[4]);
 
-	mat[0] = minor[0];
-	mat[1] = minor[3];
-	mat[2] = minor[6];
-	mat[3] = minor[1];
-	mat[4] = minor[4];
-	mat[5] = minor[7];
-	mat[6] = minor[2];
-	mat[7] = minor[5];
-	mat[8] = minor[8];
+    mat[0] = minor[0];
+    mat[1] = minor[3];
+    mat[2] = minor[6];
+    mat[3] = minor[1];
+    mat[4] = minor[4];
+    mat[5] = minor[7];
+    mat[6] = minor[2];
+    mat[7] = minor[5];
+    mat[8] = minor[8];
 
     this->mult(1.0/determinant);
 
@@ -284,7 +284,7 @@ Matrix4x4& Matrix4x4::transpose()
         mat[k] = tmp[k];
     }
 
-	return *this;
+    return *this;
 }
 
 
@@ -333,20 +333,86 @@ Matrix4x4& Matrix4x4::inverse()
         mat[11] = -((res.mat[6] * mat[3]) +  (res.mat[7] * mat[7]) + (res.mat[8] * mat[11]));
 
     }
-        return *this;
+    return *this;
 
 }
 
 
+//implementasi sebelumnya error
 Matrix4x4& Matrix4x4::translate(float x, float y, float z)
 {
-	// 1  0  0  X
-	// 0  1  0  Y
-	// 0  0  1  Z
-	// 0  0  0  W
-	mat[3] = mat[0] * x + mat[1] * y + mat[2] * z + mat[3];
-	mat[7] =  mat[4] * x + mat[5] * y + mat[6] * z + mat[7];
-	mat[11] =  mat[8] * x + mat[9] * y + mat[10] * z + mat[11];
-	return *this;
+    mat[0] += mat[12]*x;   mat[1] += mat[13]*x;   mat[2] += mat[14]*x;   mat[3] += mat[15]*x;
+    mat[4] += mat[12]*y;   mat[5] += mat[13]*y;   mat[6] += mat[14]*y;   mat[7] += mat[15]*y;
+    mat[8] += mat[12]*z;   mat[9] += mat[13]*z;   mat[10]+= mat[14]*z;   mat[11]+= mat[15]*z;
+    return *this;
 }
 
+Matrix4x4& Matrix4x4::rotateX(float _angle)
+{
+    float c = cosf(_angle * DEG2RAD);
+    float s = sinf(_angle * DEG2RAD);
+
+    float m4 = mat[4],  m5 = mat[5],  m6 = mat[6],  m7 = mat[7],  
+		  m8 = mat[8],  m9 = mat[9],  m10 = mat[10],  m11 = mat[11];
+
+    mat[4] = m4 * c + m8  * -s;
+    mat[5] = m5 * c + m9  * -s;
+    mat[6] = m6 * c + m10 * -s;
+    mat[7] = m7 * c + m11 * -s;
+    mat[8] = m4 * s + m8  *  c;
+    mat[9] = m5 * s + m9  *  c;
+    mat[10]= m6 * s + m10 *  c;
+    mat[11]= m7 * s + m11 *  c;
+    return *this;
+}
+
+Matrix4x4& Matrix4x4::rotateY(float _angle)
+{
+    float c = cosf(_angle * DEG2RAD);
+    float s = sinf(_angle * DEG2RAD);
+
+    float m0 = mat[0],  m1 = mat[1],  m2 = mat[2],  m3 = mat[3],  
+		  m8 = mat[8],  m9 = mat[9],  m10 = mat[10],  m11 = mat[11];
+
+    mat[0] = m0 *  c + m8  * s;
+    mat[1] = m1 *  c + m9  * s;
+    mat[2] = m2 *  c + m10 * s;
+    mat[3] = m3 *  c + m11 * s;
+    mat[8] = m0 * -s + m8  * c;
+    mat[9] = m1 * -s + m9  * c;
+    mat[10] = m2 * -s + m10 * c;
+    mat[11] = m3 * -s + m11 * c;
+
+    return *this;
+}
+
+Matrix4x4& Matrix4x4::rotateZ(float _angle)
+{
+    float c = cosf(_angle * DEG2RAD);
+    float s = sinf(_angle * DEG2RAD);
+
+    float m0 = mat[0],  m1 = mat[1],  m2 = mat[2],  m3 = mat[3],
+          m4 = mat[4],  m5 = mat[5],  m6 = mat[6],  m7 = mat[7];
+
+    mat[0] = m0 *  c + m4  * -s;
+    mat[1] = m1 *  c + m5  * -s;
+    mat[2] = m2 *  c + m6  * -s;
+    mat[3] = m3 *  c + m7  * -s;
+    mat[4] = m0 *  s + m4  *  c;
+    mat[5] = m1 *  s + m5  *  c;
+    mat[6]= m2 *  s + m6  *  c;
+    mat[7]= m3 *  s + m7  *  c;
+
+    return *this;
+}
+
+
+
+std::ostream& operator<<(std::ostream& os, Matrix4x4& m)
+{
+    os << m.mat[0] << "\t" <<  m.mat[1] << "\t" <<  m.mat[2] << "\t" <<  m.mat[3] << std::endl
+       << m.mat[4] << "\t" <<  m.mat[5] << "\t" <<  m.mat[6] << "\t" <<  m.mat[7]<< std::endl
+       << m.mat[8] << "\t" <<  m.mat[9] << "\t" <<  m.mat[10] << "\t" <<  m.mat[11]<< std::endl
+       << m.mat[12] << "\t" <<  m.mat[13] << "\t" <<  m.mat[14] << "\t" <<  m.mat[15]<< std::endl;
+    return os;
+}

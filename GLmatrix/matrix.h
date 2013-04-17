@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <iostream>
+#include <iomanip>
+#include <cmath>
+
+const float DEG2RAD = 3.141593f / 180;
 
 class Matrix3x3
 {
@@ -37,6 +41,10 @@ class Matrix4x4
     Matrix4x4& inverse();
     Matrix4x4& transpose();	
 	Matrix4x4& translate(float x, float y, float z);
+	Matrix4x4& rotateX(float _angle);
+ 	Matrix4x4& rotateY(float _angle);
+	Matrix4x4& rotateZ(float _angle);
+
 
     void mult(float _mult);
     void setIdentity();	
@@ -44,7 +52,7 @@ class Matrix4x4
     float getDeterminant();
     float getCofactor(float mat1, float mat2, float mat3, float mat4, float mat5, float mat6, float mat7, float mat8, float mat9);
     void print();
-    
+	friend std::ostream& operator<<(std::ostream& os, Matrix4x4& m);
     private:
     
 };

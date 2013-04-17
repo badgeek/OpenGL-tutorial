@@ -46,17 +46,18 @@ float rotX;
 float rotY;
 float rotZ;
 
-Matrix4x4 translate;
+Matrix4x4 world_mat;
+Matrix4x4 model_mat;
 
 void setup()
 {
-	translate.setIdentity();
-	cout << "translate" << endl;	
-	translate.translate(0,0,-20);
-	translate.print();
-	cout << "translate again" << endl;
-	translate.translate(0,0,-10);
-	translate.print();
+	world_mat.setIdentity();
+	model_mat.setIdentity();
+
+	world_mat.rotateY(-90) ; 	
+	world_mat.translate(0,0,-20);
+
+	model_mat.translate(0,0,0);
 }
 
 void drawScene() {
@@ -64,13 +65,10 @@ void drawScene() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	glLoadMatrixf(translate.getGlMat());
+	glMultMatrixf(world_mat.getGlMat());
 
 	glPushMatrix();
-		glRotatef(rotX,1.0,0.0,0.0); //x
-		glRotatef(rotY,0.0,1.0,0.0); //y
-		glRotatef(rotZ,0.0,0.0,1.0); //z
-
+		glMultMatrixf(model_mat.getGlMat());		
 		glPushMatrix();
 			glRotatef(90,0.0,0.0,1.0); //z
 			glRotatef(90,1.0,0.0,0.0); //z
