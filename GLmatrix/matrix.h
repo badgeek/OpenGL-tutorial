@@ -38,6 +38,8 @@ class Matrix4x4
 	Matrix4x4 operator+(Matrix4x4& _mat);
     Matrix4x4 operator*(float _mult);
     Matrix4x4 operator*(Matrix4x4& _mat);	
+    Matrix4x4& operator*=(Matrix4x4& _mat);	
+	
     Matrix4x4& inverse();
     Matrix4x4& transpose();	
 	Matrix4x4& translate(float x, float y, float z);

@@ -406,6 +406,26 @@ Matrix4x4& Matrix4x4::rotateZ(float _angle)
     return *this;
 }
 
+Matrix4x4& Matrix4x4::operator*=(Matrix4x4& _mat)
+{
+	float mul[16];
+    float sum = 0.0;
+    for (int x = 0 ; x < 4 ; x++) {
+        for(int i = 0; i < 4; i++)
+        {
+            for (int k = 0; k < 4 ; k++) {
+                sum += mat[k + (x*4)] * _mat.mat[i+(k*4)];
+            }
+            mul[((4*x) + i)] = sum;
+            sum = 0.0;
+        }
+    }
+	for (int _i = 0 ; _i<16; _i++)
+	{
+		mat[_i] = mul[_i];
+	}
+	return *this;
+}	
 
 
 std::ostream& operator<<(std::ostream& os, Matrix4x4& m)
