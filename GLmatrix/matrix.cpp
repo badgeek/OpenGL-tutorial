@@ -483,3 +483,14 @@ Vector3 Vector3::cross(Vector3& _vec)
 
 	return Vector3(res[0], res[1], res[2], 1);
 }
+
+Vector3 Vector3::operator-(Vector3& _vec)
+{
+	return Vector3(x - _vec.x , y - _vec.y , z - _vec.z);
+}
+
+
+Vector3 Vector3::operator+(Vector3& _vec)
+{
+	return Vector3(x + _vec.x , y + _vec.y , z + _vec.z);
+}

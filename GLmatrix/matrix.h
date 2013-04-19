@@ -12,6 +12,9 @@ class Vector3
 	Vector3(float _x, float _y, float _z);
 	Vector3(float _x, float _y, float _z, float _w);
 	Vector3 cross(Vector3& _vec);		
+	Vector3 operator-(Vector3& _vec);		
+	Vector3 operator+(Vector3& _vec);		
+
 	void print();
 };
 
