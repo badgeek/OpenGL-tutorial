@@ -427,6 +427,19 @@ Matrix4x4& Matrix4x4::operator*=(Matrix4x4& _mat)
 	return *this;
 }	
 
+Vector3 Matrix4x4::operator*(Vector3& _vec)
+{
+	float res[4];
+
+	res[0] = mat[0]*_vec.x +  mat[1]*_vec.y +  mat[2]*_vec.z +  mat[3]  *_vec.w;
+	res[1] = mat[4]*_vec.x +  mat[5]*_vec.y +  mat[6]*_vec.z +  mat[7]  *_vec.w;
+	res[2] = mat[8]*_vec.x +  mat[9]*_vec.y +  mat[10]*_vec.z + mat[11] *_vec.w;
+	res[3] = mat[12]*_vec.x + mat[13]*_vec.y + mat[14]*_vec.z + mat[15] *_vec.w;
+	
+	Vector3 vec_res(res[0], res[1], res[2], res[3]);
+
+	return vec_res;
+}
 
 std::ostream& operator<<(std::ostream& os, Matrix4x4& m)
 {
@@ -435,4 +448,38 @@ std::ostream& operator<<(std::ostream& os, Matrix4x4& m)
        << m.mat[8] << "\t" <<  m.mat[9] << "\t" <<  m.mat[10] << "\t" <<  m.mat[11]<< std::endl
        << m.mat[12] << "\t" <<  m.mat[13] << "\t" <<  m.mat[14] << "\t" <<  m.mat[15]<< std::endl;
     return os;
+}
+
+
+Vector3::Vector3(float _x, float _y, float _z)
+{
+	x = _x;
+	y = _y;
+	z = _z;
+	w = 1;
+}
+
+
+Vector3::Vector3(float _x, float _y, float _z, float _w)
+{
+	x = _x;
+	y = _y;
+	z = _z;
+	w = _w;
+}
+
+void Vector3::print()
+{
+	printf("%f\n%f\n%f\n", x,y,z);
+}
+
+
+Vector3 Vector3::cross(Vector3& _vec)
+{
+	float res[3];
+	res[0] = y * _vec.z - z * _vec.y;	
+	res[1] = -(x * _vec.z - z * _vec.x);	 	
+	res[2] = x * _vec.y - y * _vec.x;	
+
+	return Vector3(res[0], res[1], res[2], 1);
 }

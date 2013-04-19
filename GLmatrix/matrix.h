@@ -5,6 +5,16 @@
 
 const float DEG2RAD = 3.141593f / 180;
 
+class Vector3
+{
+	public:
+	float x,y,z,w;
+	Vector3(float _x, float _y, float _z);
+	Vector3(float _x, float _y, float _z, float _w);
+	Vector3 cross(Vector3& _vec);		
+	void print();
+};
+
 class Matrix3x3
 {
     public:
@@ -38,6 +48,9 @@ class Matrix4x4
 	Matrix4x4 operator+(Matrix4x4& _mat);
     Matrix4x4 operator*(float _mult);
     Matrix4x4 operator*(Matrix4x4& _mat);	
+
+	Vector3 operator*(Vector3& _vec);	
+	
     Matrix4x4& operator*=(Matrix4x4& _mat);	
 	
     Matrix4x4& inverse();
@@ -58,3 +71,5 @@ class Matrix4x4
     private:
     
 };
+
+

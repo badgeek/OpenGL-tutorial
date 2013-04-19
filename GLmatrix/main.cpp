@@ -1,27 +1,3 @@
-/* Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above notice and this permission notice shall be included in all copies
- * or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-/* File for "Putting It All Together" lesson of the OpenGL tutorial on
- * www.videotutorialsrock.com
- */
-
-
-
 #include <iostream>
 #include <stdlib.h>
 
@@ -34,6 +10,12 @@
 
 #include "imageloader.h"
 #include "matrix.h"
+#include "util.cpp"
+
+int width = 400;
+int height = 400;
+
+
 
 using namespace std;
 
@@ -49,6 +31,8 @@ float rotZ;
 Matrix4x4 world_mat;
 Matrix4x4 model_mat;
 Matrix4x4 rot_mat;
+Vector3 va_vec(1,3,4);
+Vector3 vb_vec(2,1,6);
 
 void setup()
 {
@@ -59,6 +43,9 @@ void setup()
    // world_mat.rotateY(-90) ;
     world_mat.translate(0,0,-10);
 
+//	(world_mat * test_vec).print();
+	
+	va_vec.cross(vb_vec).print();
 	//rot_mat.rotateX(5);
     //model_mat.translate(10,10,0);
 }
@@ -73,9 +60,11 @@ void drawScene() {
     glPushMatrix();
 
 	model_mat *= rot_mat;
-	rot_mat.setIdentity();
-
+	
+	//rot_mat.rotateY(rotY);
     glMultMatrixf(model_mat.getGlMat());
+	rot_mat.setIdentity();
+	
     glPushMatrix();
     glRotatef(90,0.0,0.0,1.0); //z
     glRotatef(90,1.0,0.0,0.0); //z
@@ -161,6 +150,19 @@ void update(int value) {
     glutTimerFunc(25, update, 0);
 }
 
+
+void mouseMove(int x, int y)
+{
+ float _x = (((float) x/ (float)width) -0.5)*2;
+ float _y = (((float) y/ (float)height) -0.5)*2;
+
+ rotY = (_x * 180);
+
+ cout << "x: " << _x << " y:" << _y << endl;
+}
+
+
+
 int main(int argc, char** argv) {
 
     rotX = 0;
@@ -169,11 +171,13 @@ int main(int argc, char** argv) {
 
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(400, 400);
+    glutInitWindowSize(width, height);
 
     glutCreateWindow("Putting It All Together - videotutorialsrock.com");
     initRendering();
     setup();
+
+	glutMotionFunc(mouseMove);
     glutDisplayFunc(drawScene);
     glutKeyboardFunc(handleKeypress);
     glutReshapeFunc(handleResize);
@@ -182,8 +186,6 @@ int main(int argc, char** argv) {
     glutMainLoop();
     return 0;
 }
-
-
 
 
 
