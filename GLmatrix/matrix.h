@@ -4,6 +4,7 @@
 #include <cmath>
 
 const float DEG2RAD = 3.141593f / 180;
+const float RAD2DEG = 180 / 3.141593f;
 
 class Vector3
 {
@@ -12,8 +13,13 @@ class Vector3
 	Vector3(float _x, float _y, float _z);
 	Vector3(float _x, float _y, float _z, float _w);
 	Vector3 cross(Vector3& _vec);		
+	Vector3& normalize();		
 	Vector3 operator-(Vector3& _vec);		
 	Vector3 operator+(Vector3& _vec);		
+	Vector3& mult(float _mul);		
+
+	float mag();
+	float angleBetween(Vector3& _vec);
 
 	void print();
 };

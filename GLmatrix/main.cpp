@@ -31,8 +31,14 @@ float rotZ;
 Matrix4x4 world_mat;
 Matrix4x4 model_mat;
 Matrix4x4 rot_mat;
-Vector3 va_vec(1,3,4);
-Vector3 vb_vec(2,1,6);
+
+
+Vector3 vOrigin(0,0,0);
+Vector3 vMouse(0,0,0);
+Vector3 vMousePrev(0,0,0);
+Vector3 vAxis(0,0,0);
+
+bool isDragged = false;
 
 void setup()
 {
@@ -42,12 +48,6 @@ void setup()
 
    // world_mat.rotateY(-90) ;
     world_mat.translate(0,0,-10);
-
-//	(world_mat * test_vec).print();
-	
-	va_vec.cross(vb_vec).print();
-	//rot_mat.rotateX(5);
-    //model_mat.translate(10,10,0);
 }
 
 void drawScene() {
@@ -58,29 +58,53 @@ void drawScene() {
     glMultMatrixf(world_mat.getGlMat());
 
     glPushMatrix();
-
-	model_mat *= rot_mat;
 	
+	model_mat *= rot_mat;
 	//rot_mat.rotateY(rotY);
     glMultMatrixf(model_mat.getGlMat());
 	rot_mat.setIdentity();
+
 	
     glPushMatrix();
     glRotatef(90,0.0,0.0,1.0); //z
     glRotatef(90,1.0,0.0,0.0); //z
-    glutWireTeapot(2.0);
+    glutWireSphere(2.0,10,10);
 	//glutWireCube(4.0);
     glPopMatrix();
-    glPopMatrix();
+	
 
     //square box
-    /*glScalef(5, 5, 1);
-    glBegin(GL_QUADS);
+    //glScalef(5, 5, 1);
+	//
+	//
+	
+	glBegin(GL_LINES);
+		glVertex3f(0,0,0);
+		Vector3 tmp = vAxis;
+		glVertex3f(vAxis.x,-vAxis.y, -vAxis.z );
+	glEnd();
+
+	glBegin(GL_LINES);
+		glVertex3f(0,0,0);
+		glVertex3f(vMouse.x,-vMouse.y, -vMouse.z );
+	glEnd();
+
+
+		glBegin(GL_LINES);
+		glVertex3f(0,0,0);
+		glVertex3f(vMousePrev.x,-vMousePrev.y, -vMousePrev.z );
+	glEnd();
+
+
+
+   /* glBegin(GL_QUADS);
     	glVertex2f(-0.5, 0.5);
     	glVertex2f(0.5, 0.5);
     	glVertex2f(0.5, -0.5);
     	glVertex2f(-0.5, -0.5);
-    glEnd();*/
+    glEnd();
+*/
+	glPopMatrix();
 
     glutSwapBuffers();
 }
@@ -151,16 +175,60 @@ void update(int value) {
 }
 
 
-void mouseMove(int x, int y)
+
+Vector3 arcGetVec(int x, int y)
 {
  float _x = (((float) x/ (float)width) -0.5)*2;
  float _y = (((float) y/ (float)height) -0.5)*2;
+ float _z = 0;
+ 
+ float square_d = _x*_x + _y*_y;
 
- rotY = (_x * 180);
+ if (square_d <1.0)
+ {
+  _z = sqrt( (0.5) - (square_d*0.5) );
+ }else{
+  _z = 0;
+ }
+	
+ return Vector3(_x,_y,_z); 
 
- cout << "x: " << _x << " y:" << _y << endl;
 }
 
+
+void mouseMove(int x, int y)
+{
+		isDragged = true;
+		cout << "drag" << endl;
+
+
+		vMouse =  arcGetVec(x,y);
+
+
+		float angle = vMouse.angleBetween(vMousePrev);
+		printf("angle: %f\n", angle);
+
+		vAxis  = vMouse.cross(vMousePrev);
+
+		vAxis.normalize();
+		vAxis.mult(10);
+		
+		//vMousePrev = vMouse;
+
+}
+
+void mouseClick(int button, int state, int x, int y)
+{
+		if (isDragged){
+		isDragged = false;
+		vMousePrev = vMouse;
+		cout << "end drag" << endl;
+		}else
+		{
+		cout << "start drag" << endl;
+		vMousePrev = arcGetVec(x,y);	
+		}
+}
 
 
 int main(int argc, char** argv) {
@@ -177,7 +245,10 @@ int main(int argc, char** argv) {
     initRendering();
     setup();
 
+	//glutPassiveMotionFunc(mouseMove);	
 	glutMotionFunc(mouseMove);
+	glutMouseFunc(mouseClick);
+
     glutDisplayFunc(drawScene);
     glutKeyboardFunc(handleKeypress);
     glutReshapeFunc(handleResize);

@@ -494,3 +494,38 @@ Vector3 Vector3::operator+(Vector3& _vec)
 {
 	return Vector3(x + _vec.x , y + _vec.y , z + _vec.z);
 }
+
+
+Vector3& Vector3::mult(float _mul)
+{
+	x=x*_mul;
+	y=y*_mul;
+	z=z*_mul;
+	return *this;
+}
+
+float Vector3::angleBetween(Vector3& _vec){
+	float a = _vec.mag();
+	float b = mag();
+	float a_dot_b  = x * _vec.x + y * _vec.y + z*_vec.z;
+	float angle = a_dot_b/(a*b);
+	return (acos(angle)*RAD2DEG);
+}
+
+float Vector3::mag()
+{
+	return sqrt(x*x + y*y + z*z);
+}
+
+Vector3& Vector3::normalize()
+{
+	float length = sqrt(x*x + y*y + z*z);
+	
+	x = x/length;
+	y = y/length;
+	z = z/length;
+
+	return *this;
+}
+
+
