@@ -406,6 +406,45 @@ Matrix4x4& Matrix4x4::rotateZ(float _angle)
     return *this;
 }
 
+Matrix4x4& Matrix4x4::rotate(float _angle, float x, float y , float z)
+{
+
+	float c = cosf(_angle * DEG2RAD);    // cosine
+    float s = sinf(_angle * DEG2RAD);    // sine
+    float xx = x * x;
+    float xy = x * y;
+    float xz = x * z;
+    float yy = y * y;
+    float yz = y * z;
+    float zz = z * z;
+
+    // build rotation matrix
+	float m[16];
+    m[0] = xx * (1 - c) + c;
+    m[1] = xy * (1 - c) - z * s;
+    m[2] = xz * (1 - c) + y * s;
+    m[3] = 0;
+    m[4] = xy * (1 - c) + z * s;
+    m[5] = yy * (1 - c) + c;
+    m[6] = yz * (1 - c) - x * s;
+    m[7] = 0;
+    m[8] = xz * (1 - c) - y * s;
+    m[9] = yz * (1 - c) + x * s;
+    m[10]= zz * (1 - c) + c;
+    m[11]= 0;
+    m[12]= 0;
+    m[13]= 0;
+    m[14]= 0;
+    m[15]= 1;
+
+    Matrix4x4 tmp(m);
+
+    // multiply it
+    *this = tmp * (*this);
+
+	return *this;
+}
+
 Matrix4x4& Matrix4x4::operator*=(Matrix4x4& _mat)
 {
 	float mul[16];
@@ -509,7 +548,7 @@ float Vector3::angleBetween(Vector3& _vec){
 	float b = mag();
 	float a_dot_b  = x * _vec.x + y * _vec.y + z*_vec.z;
 	float angle = a_dot_b/(a*b);
-	return (acos(angle)*RAD2DEG);
+	return (acos(angle));
 }
 
 float Vector3::mag()

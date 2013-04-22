@@ -68,6 +68,7 @@ class Matrix4x4
 	Matrix4x4& rotateX(float _angle);
  	Matrix4x4& rotateY(float _angle);
 	Matrix4x4& rotateZ(float _angle);
+	Matrix4x4& rotate(float _angle, float x, float y , float z);
 
 
     void mult(float _mult);
